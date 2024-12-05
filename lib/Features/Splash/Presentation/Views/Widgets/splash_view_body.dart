@@ -22,13 +22,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     super.initState();
     initSlidingAnimation();
 
-    Future.delayed(const Duration(seconds: 2), () {
-      Get.to(
-        () => const HomeView(),
-        transition: Transition.fade,
-        duration: kTransitionDuration,
-      );
-    });
+    homeNavigation();
   }
 
   @override
@@ -61,8 +55,24 @@ class _SplashViewBodyState extends State<SplashViewBody>
     );
     slidingAnimation =
         Tween<Offset>(begin: const Offset(0, 3), end: Offset.zero).animate(
-      CurvedAnimation(parent: _animationController, curve: Curves.easeOut),
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeOut,
+      ),
     );
     _animationController.forward();
+  }
+
+  void homeNavigation() {
+    Future.delayed(
+      const Duration(seconds: 2),
+      () {
+        Get.to(
+          () => const HomeView(),
+          transition: Transition.fade,
+          duration: kTransitionDuration,
+        );
+      },
+    );
   }
 }
