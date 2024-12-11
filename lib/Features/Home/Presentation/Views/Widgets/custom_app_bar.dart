@@ -1,4 +1,5 @@
 import 'package:bookly_app/Core/Utils/assets.dart';
+import 'package:bookly_app/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -7,7 +8,8 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.only(left: 30, right: 30, top: 50, bottom: 35),
+      padding:
+          EdgeInsets.only(left: kPadding, right: kPadding, top: 50, bottom: 35),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

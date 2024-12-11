@@ -3,7 +3,6 @@ import 'package:bookly_app/Core/Utils/styles.dart';
 import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/book_rating.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({super.key});
@@ -11,7 +10,7 @@ class BestSellerListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
       child: Row(
         children: [
           SizedBox(
