@@ -16,7 +16,9 @@ class HomeViewBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomAppBar(),
+              SafeArea(
+                child: CustomAppBar(),
+              ),
               CustomBooksListView(),
               SizedBox(
                 height: 50,
