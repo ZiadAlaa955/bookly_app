@@ -1,4 +1,5 @@
 import 'package:bookly_app/Core/Utils/styles.dart';
+import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/book_rating.dart';
 import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/custom_book-details_app_bar.dart';
 import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/custom_book_item.dart';
 import 'package:bookly_app/constants.dart';
@@ -11,7 +12,7 @@ class BookDetailsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kPadding),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
           const SafeArea(
@@ -37,6 +38,12 @@ class BookDetailsViewBody extends StatelessWidget {
                 fontStyle: FontStyle.italic,
               ),
             ),
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+          const BookRating(
+            mainAxisAlignment: MainAxisAlignment.center,
           ),
         ],
       ),
