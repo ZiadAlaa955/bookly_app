@@ -19,7 +19,7 @@ class HomeViewBody extends StatelessWidget {
               SafeArea(
                 child: CustomAppBar(),
               ),
-              CustomBooksListView(),
+              FeaturedBooksListView(),
               SizedBox(
                 height: 50,
               ),
