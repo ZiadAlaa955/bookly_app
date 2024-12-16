@@ -16,7 +16,7 @@ class BestSellerListViewItem extends StatelessWidget {
         GoRouter.of(context).push(AppRoutes.kBookDetailsView);
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+        padding: const EdgeInsets.only(right: kPadding, top: 10, bottom: 10),
         child: Row(
           children: [
             SizedBox(
