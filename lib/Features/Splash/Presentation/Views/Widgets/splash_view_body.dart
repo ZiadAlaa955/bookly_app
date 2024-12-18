@@ -1,7 +1,11 @@
 import 'package:bookly_app/Core/Utils/app_routes.dart';
 import 'package:bookly_app/Core/Utils/assets.dart';
+import 'package:bookly_app/Core/Utils/service_locator.dart';
+import 'package:bookly_app/Features/Home/Data/repos/home_repo_impl.dart';
+import 'package:bookly_app/Features/Home/Presentation/Manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/Features/Splash/Presentation/Views/Widgets/sliding_animation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
