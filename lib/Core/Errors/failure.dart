@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 abstract class Failure {
   final String errorMessage;
@@ -6,43 +7,53 @@ abstract class Failure {
   const Failure({required this.errorMessage});
 }
 
-class ServerFaluire extends Failure {
-  ServerFaluire({required super.errorMessage});
-
-  factory ServerFaluire.fromDioEsxeption(DioException dioError) {
-    switch (dioError.type) {
+class ServerFailure extends Failure {
+  ServerFailure({required super.errorMessage});
+  factory ServerFailure.fromDioExecption(DioException dioException) {
+    switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
-        return ServerFaluire(errorMessage: 'Connection timeout');
+        return ServerFailure(
+            errorMessage: 'Connection timed out. Please try again later.');
       case DioExceptionType.sendTimeout:
-        return ServerFaluire(errorMessage: 'Url is sent timeout');
+        return ServerFailure(
+            errorMessage: 'Send request timed out. Please try again.');
       case DioExceptionType.receiveTimeout:
-        return ServerFaluire(errorMessage: 'Revieve timeout');
+        return ServerFailure(
+            errorMessage:
+                'Response timed out. Server took too long to respond.');
       case DioExceptionType.badCertificate:
-        return ServerFaluire(errorMessage: 'Incorrect certificate');
+        return ServerFailure(
+            errorMessage: 'Invalid certificate. Secure connection failed.');
       case DioExceptionType.badResponse:
-        return ServerFaluire.fromBadResponse(
-            dioError.response!.statusCode!, dioError.response!.data);
+        return ServerFailure.fromBadResponse(
+            dioException.response!.statusCode!, dioException.response!.data);
       case DioExceptionType.cancel:
-        return ServerFaluire(errorMessage: 'Request was cancelled');
+        return ServerFailure(
+            errorMessage: 'Request was cancelled. Please retry.');
       case DioExceptionType.connectionError:
-        return ServerFaluire(
+        return ServerFailure(
             errorMessage: 'Connection failed. Check your internet connection.');
       case DioExceptionType.unknown:
-      default:
-        return ServerFaluire(
+        return ServerFailure(
             errorMessage:
-                'An unexpected error occurred. Please try again later.');
+                "An unexpected error occurred. Please try again later.");
+      default:
+        return ServerFailure(
+            errorMessage: 'Oops there is an error. Plaease try again');
     }
   }
-  factory ServerFaluire.fromBadResponse(int statusCode, dynamic response) {
-    if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFaluire(errorMessage: response['error']['message']);
-    } else if (statusCode == 500) {
-      return ServerFaluire(
-          errorMessage: 'Internal Server Error. Please try later');
-    } else {
-      return ServerFaluire(
-          errorMessage: 'Oops there is an error. Please try later');
+  factory ServerFailure.fromBadResponse(int statusCode, Response response) {
+    switch (statusCode) {
+      case 400:
+      case 401:
+      case 403:
+        return ServerFailure(errorMessage: 'Bad response. Please try again.');
+      case 500:
+        return ServerFailure(
+            errorMessage: 'Internal server error. Please try later');
+      default:
+        return ServerFailure(
+            errorMessage: 'Recieved invalid response: $statusCode');
     }
   }
 }
