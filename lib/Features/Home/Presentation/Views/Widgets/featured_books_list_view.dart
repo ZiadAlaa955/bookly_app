@@ -23,8 +23,9 @@ class FeaturedBooksListView extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(right: 15),
                   child: CustomBookItem(
-                      imageUrl:
-                          state.books[index].volumeInfo.imageLinks.thumbnail),
+                    imageUrl:
+                        state.books[index].volumeInfo.imageLinks.thumbnail,
+                  ),
                 );
               },
             ),
