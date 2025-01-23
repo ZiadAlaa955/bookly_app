@@ -1,14 +1,14 @@
 import 'package:bookly_app/Core/Utils/app_routes.dart';
-import 'package:bookly_app/Core/Utils/assets.dart';
 import 'package:bookly_app/Core/Utils/styles.dart';
+import 'package:bookly_app/Features/Home/Data/Models/book_model/book_model.dart';
 import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/book_rating.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
-
+class NewestBooksListViewItem extends StatelessWidget {
+  const NewestBooksListViewItem({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -21,8 +21,9 @@ class BestSellerListViewItem extends StatelessWidget {
           children: [
             SizedBox(
               height: 120,
-              child: Image.asset(
-                AssetsData.testImage,
+              child: Image.network(
+                fit: BoxFit.fill,
+                bookModel.volumeInfo.imageLinks.thumbnail,
               ),
             ),
             const SizedBox(
@@ -35,7 +36,7 @@ class BestSellerListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.57,
                     child: Text(
-                      'The Jungle Book',
+                      bookModel.volumeInfo.title!,
                       style: Styles.style20.copyWith(
                         fontFamily: kGtSectraFine,
                         fontWeight: FontWeight.normal,
@@ -48,7 +49,7 @@ class BestSellerListViewItem extends StatelessWidget {
                     height: 3,
                   ),
                   Text(
-                    'Rudyard Kipling',
+                    bookModel.volumeInfo.authors?[0] ?? "UnKnown",
                     style: Styles.style14.copyWith(
                       color: const Color(0xffB7B6BC),
                     ),
@@ -59,7 +60,7 @@ class BestSellerListViewItem extends StatelessWidget {
                   const Row(
                     children: [
                       Text(
-                        '19.99 €',
+                        'Free',
                         style: Styles.style20,
                       ),
                       Spacer(),

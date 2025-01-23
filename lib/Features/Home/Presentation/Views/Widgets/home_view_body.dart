@@ -1,5 +1,5 @@
 import 'package:bookly_app/Core/Utils/styles.dart';
-import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/best_seller_sliver_list.dart';
+import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/newest_books_sliver_list.dart';
 import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/custom_app_bar.dart';
 import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/featured_books_list_view.dart';
 import 'package:bookly_app/constants.dart';
@@ -26,7 +26,7 @@ class HomeViewBody extends StatelessWidget {
                   height: 50,
                 ),
                 Text(
-                  'Best Seller',
+                  'Newest Books',
                   style: Styles.style18,
                 ),
                 SizedBox(
@@ -35,7 +35,7 @@ class HomeViewBody extends StatelessWidget {
               ],
             ),
           ),
-          BestSellerSliverList(),
+          NewestBooksSliverList(),
         ],
       ),
     );
