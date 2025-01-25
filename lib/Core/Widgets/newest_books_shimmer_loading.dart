@@ -1,10 +1,10 @@
-import 'package:bookly_app/Core/Widgets/custom_newest_books_shimmer_loading.dart';
+import 'package:bookly_app/Core/Widgets/custom_newest_books_shimmer_loading_item.dart';
 import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class ShimmerLoading extends StatelessWidget {
-  const ShimmerLoading({super.key});
+class NewestBooksShimmerLoading extends StatelessWidget {
+  const NewestBooksShimmerLoading({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class ShimmerLoading extends StatelessWidget {
             child: Shimmer.fromColors(
               baseColor: Colors.grey[300]!,
               highlightColor: Colors.grey[100]!,
-              child: const CustomNewestBooksShimemrLoading(),
+              child: const CustomNewestBooksShimemrLoadingItem(),
             ),
           );
         },

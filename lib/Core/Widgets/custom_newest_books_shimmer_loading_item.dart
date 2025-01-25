@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomNewestBooksShimemrLoading extends StatelessWidget {
-  const CustomNewestBooksShimemrLoading({super.key});
+class CustomNewestBooksShimemrLoadingItem extends StatelessWidget {
+  const CustomNewestBooksShimemrLoadingItem({super.key});
 
   @override
   Widget build(BuildContext context) {

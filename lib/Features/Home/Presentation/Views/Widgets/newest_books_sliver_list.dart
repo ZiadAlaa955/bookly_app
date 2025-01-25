@@ -1,4 +1,4 @@
-import 'package:bookly_app/Core/Widgets/circular_indicator.dart';
+import 'package:bookly_app/Core/Widgets/newest_books_shimmer_loading.dart';
 import 'package:bookly_app/Core/Widgets/error_message.dart';
 import 'package:bookly_app/Features/Home/Presentation/Manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/newest_books_listview_item.dart';
@@ -26,7 +26,7 @@ class NewestBooksSliverList extends StatelessWidget {
           return SliverToBoxAdapter(
               child: ErrorMessage(errorMessage: state.errorMessage));
         } else {
-          return ShimmerLoading();
+          return NewestBooksShimmerLoading();
         }
       },
     );
