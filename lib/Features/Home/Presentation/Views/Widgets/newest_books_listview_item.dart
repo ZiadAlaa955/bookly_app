@@ -3,6 +3,7 @@ import 'package:bookly_app/Core/Utils/styles.dart';
 import 'package:bookly_app/Features/Home/Data/Models/book_model/book_model.dart';
 import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/book_rating.dart';
 import 'package:bookly_app/constants.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -21,9 +22,18 @@ class NewestBooksListViewItem extends StatelessWidget {
           children: [
             SizedBox(
               height: 120,
-              child: Image.network(
-                fit: BoxFit.fill,
-                bookModel.volumeInfo.imageLinks.thumbnail,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(14),
+                child: CachedNetworkImage(
+                  errorWidget: (context, url, error) => const Icon(
+                    Icons.error,
+                  ),
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  fit: BoxFit.fill,
+                  imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
+                ),
               ),
             ),
             const SizedBox(
