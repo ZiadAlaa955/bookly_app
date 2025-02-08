@@ -13,7 +13,7 @@ class SimilarBooksSection extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Text(
-            'You can also like',
+            'You also may like',
             style: Styles.style14.copyWith(
               fontWeight: FontWeight.w600,
             ),

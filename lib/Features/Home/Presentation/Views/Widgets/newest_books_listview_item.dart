@@ -1,5 +1,6 @@
 import 'package:bookly_app/Core/Utils/app_routes.dart';
 import 'package:bookly_app/Core/Utils/styles.dart';
+import 'package:bookly_app/Core/Widgets/newest_books_shimmer_loading.dart';
 import 'package:bookly_app/Features/Home/Data/Models/book_model/book_model.dart';
 import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/book_rating.dart';
 import 'package:bookly_app/constants.dart';
@@ -14,7 +15,7 @@ class NewestBooksListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRoutes.kBookDetailsView);
+        GoRouter.of(context).push(AppRoutes.kBookDetailsView, extra: bookModel);
       },
       child: Padding(
         padding: const EdgeInsets.only(right: kPadding, top: 10, bottom: 10),
@@ -27,9 +28,6 @@ class NewestBooksListViewItem extends StatelessWidget {
                 child: CachedNetworkImage(
                   errorWidget: (context, url, error) => const Icon(
                     Icons.error,
-                  ),
-                  placeholder: (context, url) => const Center(
-                    child: CircularProgressIndicator(),
                   ),
                   fit: BoxFit.fill,
                   imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
@@ -67,14 +65,17 @@ class NewestBooksListViewItem extends StatelessWidget {
                   const SizedBox(
                     height: 3,
                   ),
-                  const Row(
+                  Row(
                     children: [
-                      Text(
+                      const Text(
                         'Free',
                         style: Styles.style20,
                       ),
-                      Spacer(),
-                      BookRating(),
+                      const Spacer(),
+                      BookRating(
+                        averageraiting: bookModel.volumeInfo.averageRating ?? 0,
+                        raitingCount: bookModel.volumeInfo.ratingsCount ?? 0,
+                      ),
                     ],
                   ),
                 ],

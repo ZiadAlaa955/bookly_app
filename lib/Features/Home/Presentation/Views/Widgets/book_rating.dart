@@ -1,4 +1,5 @@
 import 'package:bookly_app/Core/Utils/styles.dart';
+import 'package:bookly_app/Features/Home/Data/Models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 
@@ -6,8 +7,12 @@ class BookRating extends StatelessWidget {
   const BookRating({
     super.key,
     this.mainAxisAlignment = MainAxisAlignment.start,
+    required this.averageraiting,
+    required this.raitingCount,
   });
   final MainAxisAlignment mainAxisAlignment;
+  final num averageraiting;
+  final int raitingCount;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +28,7 @@ class BookRating extends StatelessWidget {
           width: 6,
         ),
         Text(
-          '4.8',
+          '$averageraiting',
           style: Styles.style16.copyWith(fontWeight: FontWeight.w600),
         ),
         const SizedBox(
@@ -32,7 +37,7 @@ class BookRating extends StatelessWidget {
         Opacity(
           opacity: 0.5,
           child: Text(
-            '(2390)',
+            '($raitingCount)',
             style: Styles.style14.copyWith(
               fontWeight: FontWeight.w600,
             ),

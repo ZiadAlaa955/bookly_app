@@ -26,7 +26,7 @@ class NewestBooksSliverList extends StatelessWidget {
           return SliverToBoxAdapter(
               child: ErrorMessage(errorMessage: state.errorMessage));
         } else {
-          return NewestBooksShimmerLoading();
+          return const NewestBooksShimmerLoading();
         }
       },
     );

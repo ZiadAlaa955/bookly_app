@@ -4,6 +4,7 @@ import 'package:bookly_app/Core/Utils/service_locator.dart';
 import 'package:bookly_app/Features/Home/Data/repos/home_repo_impl.dart';
 import 'package:bookly_app/Features/Home/Presentation/Manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/Features/Home/Presentation/Manager/newest_books_cubit/newest_books_cubit.dart';
+import 'package:bookly_app/Features/Home/Presentation/Manager/similar_books_cubit/similar_books_cubit.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
