@@ -11,7 +11,7 @@ class SearchRepoImpl extends SearchRepo {
   SearchRepoImpl({required this.apiService});
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchSearchBooks(
+  Future<Either<Failure, List<BookModel>>> fetchSearchedBooks(
       {required String name}) async {
     try {
       Map<String, dynamic> data = await apiService.getBooks(
