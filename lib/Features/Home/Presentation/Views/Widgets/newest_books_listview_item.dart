@@ -44,7 +44,7 @@ class NewestBooksListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.57,
                     child: Text(
-                      bookModel.volumeInfo.title!,
+                      bookModel.volumeInfo.title ?? '',
                       style: Styles.style20.copyWith(
                         fontFamily: kGtSectraFine,
                         fontWeight: FontWeight.normal,

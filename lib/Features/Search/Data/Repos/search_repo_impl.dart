@@ -15,7 +15,8 @@ class SearchRepoImpl extends SearchRepo {
       {required String name}) async {
     try {
       Map<String, dynamic> data = await apiService.getBooks(
-          endpoint: 'volumes?q=$name&sorting=relevance&filtering=free-ebooks');
+        endpoint: 'volumes?q=$name&sorting=relevance&filtering=free-ebooks',
+      );
 
       List<BookModel> books = [];
       for (var book in data['items']) {
