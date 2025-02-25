@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NewestBooksSliverList extends StatelessWidget {
   const NewestBooksSliverList({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NewestBooksCubit, NewestBooksState>(
@@ -16,15 +17,14 @@ class NewestBooksSliverList extends StatelessWidget {
             delegate: SliverChildBuilderDelegate(
               childCount: state.books.length,
               (context, index) {
-                return NewestBooksListViewItem(
-                  bookModel: state.books[index],
-                );
+                return NewestBooksListViewItem(bookModel: state.books[index]);
               },
             ),
           );
         } else if (state is NewestBooksFailure) {
           return SliverToBoxAdapter(
-              child: ErrorMessage(errorMessage: state.errorMessage));
+            child: ErrorMessage(errorMessage: state.errorMessage),
+          );
         } else {
           return const NewestBooksShimmerLoading();
         }

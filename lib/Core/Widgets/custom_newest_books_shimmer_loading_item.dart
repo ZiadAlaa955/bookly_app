@@ -9,15 +9,9 @@ class CustomNewestBooksShimemrLoadingItem extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(14),
-          child: Container(
-            height: 120,
-            width: 100,
-            color: Colors.white,
-          ),
+          child: Container(height: 120, width: 100, color: Colors.white),
         ),
-        const SizedBox(
-          width: 16,
-        ),
+        const SizedBox(width: 16),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,9 +33,7 @@ class CustomNewestBooksShimemrLoadingItem extends StatelessWidget {
                 height: 14.0,
                 color: Colors.white,
               ),
-              const SizedBox(
-                height: 15,
-              ),
+              const SizedBox(height: 15),
             ],
           ),
         ),

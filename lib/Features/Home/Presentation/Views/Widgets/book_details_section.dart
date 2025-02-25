@@ -3,7 +3,7 @@ import 'package:bookly_app/Features/Home/Data/Models/book_model/book_model.dart'
 import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/book_rating.dart';
 import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/books_action_button.dart';
 import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/custom_book_item.dart';
-import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/Core/Utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsSection extends StatelessWidget {
@@ -22,9 +22,7 @@ class BookDetailsSection extends StatelessWidget {
             imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
           ),
         ),
-        const SizedBox(
-          height: 35,
-        ),
+        const SizedBox(height: 35),
         Text(
           bookModel.volumeInfo.title!,
           style: Styles.style30.copyWith(fontFamily: kGtSectraFine),
@@ -40,17 +38,20 @@ class BookDetailsSection extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          height: 14,
+        const SizedBox(height: 14),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            BookRating(
+              averageraiting: bookModel.volumeInfo.averageRating ?? 0,
+              raitingCount: bookModel.volumeInfo.ratingsCount ?? 0,
+            ),
+          ],
         ),
-        const SizedBox(
-          height: 30,
-        ),
+        const SizedBox(height: 30),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: BooksActionButton(
-            bookModel: bookModel,
-          ),
+          child: BooksActionButton(bookModel: bookModel),
         ),
       ],
     );

@@ -1,5 +1,5 @@
 import 'package:bookly_app/Core/Utils/styles.dart';
-import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/Core/Utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class ErrorMessage extends StatelessWidget {

@@ -12,9 +12,7 @@ class SlidingAnimation extends StatelessWidget {
       child: const Text(
         'Read Awesome Books',
         textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 16,
-        ),
+        style: TextStyle(fontSize: 16),
       ),
     );
   }

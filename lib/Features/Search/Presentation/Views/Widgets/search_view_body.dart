@@ -2,7 +2,7 @@ import 'package:bookly_app/Core/Utils/styles.dart';
 import 'package:bookly_app/Features/Search/Presentation/Manager/search_books_cubit/search_books_cubit.dart';
 import 'package:bookly_app/Features/Search/Presentation/Views/Widgets/custom_text_filed.dart';
 import 'package:bookly_app/Features/Search/Presentation/Views/Widgets/search_list_view.dart';
-import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/Core/Utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,6 +12,7 @@ class SearchViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = TextEditingController();
+
     return Padding(
       padding: const EdgeInsets.only(
           left: kPadding - 5, right: kPadding - 5, top: 15),
@@ -36,14 +37,9 @@ class SearchViewBody extends StatelessWidget {
             },
           ),
           const SizedBox(height: 10),
-          const Text(
-            'Newest Books',
-            style: Styles.style18,
-          ),
+          const Text('Newest Books', style: Styles.style18),
           const SizedBox(height: 10),
-          const Expanded(
-            child: SearchListView(),
-          ),
+          const Expanded(child: SearchListView()),
         ],
       ),
     );

@@ -1,5 +1,3 @@
-import 'package:bookly_app/Core/Widgets/custom_newest_books_shimmer_loading_item.dart';
-import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -23,9 +21,7 @@ class FeaturedBooksShimmerLoading extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 15),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(14),
-                  child: Container(
-                    color: Colors.white,
-                  ),
+                  child: Container(color: Colors.white),
                 ),
               ),
             ),
